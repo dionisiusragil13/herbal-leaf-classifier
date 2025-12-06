@@ -1,0 +1,21 @@
+# Virtual Environment (if at root)
+venv/
+.venv/
+
+# Node modules (if at root)
+node_modules/
+
+# Environment files
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+
+# Logs
+logs/
+*.log
