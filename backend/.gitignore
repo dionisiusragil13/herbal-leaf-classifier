@@ -88,3 +88,8 @@ Thumbs.db
 .coverage
 htmlcov/
 .pytest_cache/
+
+app/dataset/
+dataset/
+data/
+datasets/

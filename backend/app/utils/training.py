@@ -1,2 +1,0 @@
-def training():
-    return
