@@ -18,5 +18,3 @@ training_state = {
 }
 
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
-
-CURRENT_MODEL = ""
