@@ -1,5 +1,5 @@
 import tensorflow as tf
-from app.utils.training_state import training_state
+from app.config import training_state
 from app.utils.training_callbacks import ProgressCallback
 from app.utils.data_split import split_data
 from app.utils.pipeline import create_training_pipeline

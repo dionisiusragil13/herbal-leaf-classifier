@@ -1,10 +1,6 @@
 from flask import Blueprint, jsonify, request
-#from app.utils.train_model import training
-#from app.utils.data_split import split_data
-#from app.utils.pipeline import create_training_pipeline
-#from app.utils.model_save import save_trained_model
 import threading
-from app.utils.training_state import training_state
+from app.config import training_state
 from app.utils.training import train_in_background
 
 train_bp = Blueprint("train",__name__)
