@@ -1,7 +1,7 @@
 import tensorflow as tf
 
 def split_data(params,data_dir):
-    split_ratio = params.get("split",80)/100
+    split_ratio = params.get("split_data",80)/100
     train_dataset = tf.keras.utils.image_dataset_from_directory(
         data_dir,
         image_size=(224,224),
