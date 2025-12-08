@@ -1,5 +1,5 @@
 from tensorflow import keras
-from app.utils.training_state import training_state
+from app.config import training_state
 
 
 class ProgressCallback(keras.callbacks.Callback):
