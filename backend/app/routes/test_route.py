@@ -1,7 +1,10 @@
 from flask import Blueprint, jsonify, request
 from app.utils.predict import model_predict
-from app.config import ALLOWED_EXTENSIONS, CURRENT_MODEL, class_names
+from app.config import class_names
 from app.utils.list_model import list_saved_models
+from app.utils.load_model import load_models
+from app.lib.state import test_state
+from app.utils.image_format import allowed_file
 
 test_bp = Blueprint("test",__name__)
 
@@ -9,8 +12,26 @@ test_bp = Blueprint("test",__name__)
 def test_predict():
     try:
         image = request.files['image']
-        model = request.form['models']
-        result = model_predict(image,model,class_names)
+        if not image:
+            return jsonify({
+                'success':False,
+                'message':'please input an image'
+            })
+        if not allowed_file(image.filename):
+            return jsonify({
+                'success':False,
+                'messages':'image format should be JPG/PNG/JPEG'
+            })
+
+        model = test_state['current_model']
+        if not model:
+            return jsonify({
+                'success':False,
+                'message':'please select a model'
+            })
+        
+        img_bytes = image.read()
+        result = model_predict(img_bytes,model,class_names)
 
         return jsonify({
             'success':True,
@@ -53,10 +74,31 @@ def models():
 @test_bp.route('/load_model',methods=['GET'])
 def load_model():
     try:
-        model = request.form('model_file')
-        return
+        data = request.get_json()
+        
+        if not data or 'model_name' not in data:
+            return jsonify({
+                'success': False,
+                'error': 'Missing required parameter: model_name'
+            }), 400
+        
+        model_name = data['model_name']
+        models_dir = "./app/model"
+
+        result = load_models(model_name, models_dir)
+        
+        if result['success']:
+            return jsonify(result), 200
+        else:
+            return jsonify(result), 404
+            
     except Exception as e:
+        print(f"Error in /load-model: {str(e)}")
+        import traceback
+        traceback.print_exc()
+        
         return jsonify({
-            'error':"error in the server",
-            'message':str(e)
-        })
+            'success': False,
+            'error': 'Failed to load model',
+            'details': str(e)
+        }), 500
