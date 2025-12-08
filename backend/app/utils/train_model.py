@@ -4,7 +4,7 @@ import tensorflow as tf
 from app.utils.attention_block import se_block
 
 def training(params):
-    learning_rate = params.get('learning-rate',0.01)
+    learning_rate = params.get('learning_rate',0.01)
     optimizer = params.get('optimizer', 'RMSProp')
 
     if optimizer.lower() == 'rmsprop':
