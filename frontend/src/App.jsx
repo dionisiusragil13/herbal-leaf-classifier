@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Route, Routes, Navigate } from "react-router";
-import HomePage from "../pages/HomePage";
+import HomePage from "../src/pages/HomePage";
 import Navbar from "./components/Navbar";
-import TrainPage from "../pages/TrainPage";
-import TestPage from "../pages/TestPage";
+import TrainPage from "../src/pages/TrainPage";
+import TestPage from "../src/pages/TestPage";
 
 
 function App() {
