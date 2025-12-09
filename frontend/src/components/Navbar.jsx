@@ -5,7 +5,7 @@ function Navbar() {
   const location = useLocation();
   const isActive = (path) => location.pathname === path;
   return (
-    <div className="flex justify-between pr-25 items-center mx-4 ">
+    <div className="flex justify-between pr-25 pl-41 items-center mx-4 ">
       <div>
         <span className="font-">LeafSense</span>
       </div>
