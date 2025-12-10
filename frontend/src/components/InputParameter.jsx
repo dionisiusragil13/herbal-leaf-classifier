@@ -7,8 +7,9 @@ function InputParameter() {
   const [optimizer, setOptimizer] = useState("");
   const [learningRate, setLearningRate] = useState("");
   const [epoch, setEpoch] = useState(5);
+  const [name, setName] = useState("");
 
-  const { startTraining, isLoading } = useTrainStore();
+  const { startTraining, isLoading, isTraining } = useTrainStore();
 
   const handleChange = (e) => {
     setsplitData(Number(e.target.value));
@@ -23,14 +24,18 @@ function InputParameter() {
   const handleEpochChange = (e) => {
     setEpoch(e.target.value);
   };
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const parameter = {
-      'split_data': splitData,
-      'optimizer': optimizer,
-      'learning_rate': Number(learningRate),
-      'epochs': Number(epoch),
+      split_data: splitData,
+      optimizer: optimizer,
+      learning_rate: Number(learningRate),
+      epochs: Number(epoch),
+      model_name:name
     };
     startTraining(parameter);
   };
@@ -138,6 +143,19 @@ function InputParameter() {
               placeholder="masukkan epoch"
               value={epoch}
               onChange={handleEpochChange}
+            />
+          </div>
+          <div className="mb-4">
+            <div className="flex flex-row items-center gap-2 mb-2">
+              <h2 className="text-xl font-semibold text-gray-800">Nama File</h2>
+              <CircleQuestionMark color="#000000" className="w-3 h-3" />
+            </div>
+            <input
+              className=" w-full bg-[#d9d9d9] placeholder-gray-700/50 h-10 rounded-lg text-black pl-5"
+              type="text"
+              placeholder="masukkan nama model"
+              value={name}
+              onChange={handleNameChange}
             />
           </div>
         </div>
