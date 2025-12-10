@@ -2,7 +2,9 @@ import React from 'react'
 
 function TestPage() {
   return (
-    <div>TestPage</div>
+    <div className='flex items-center'>
+      <div></div>
+    </div>
   )
 }
 
