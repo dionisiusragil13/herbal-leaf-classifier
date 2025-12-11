@@ -3,9 +3,10 @@ import InputParameter from "../components/InputParameter";
 import TextWithHighlight from "../components/HighLightedText";
 import ProgressBar from "../components/ProgressBar";
 import useTrainStore from "../store/useTrainStore";
+import TrainResult from "../components/TrainResult";
 
 function TrainPage() {
-  const { isTraining } = useTrainStore();
+  const { isTraining, trainingResults } = useTrainStore();
   return (
     <div className="min-h-scren flex flex-col items-center justify-center mt-12">
       <img
@@ -30,10 +31,18 @@ function TrainPage() {
       <div className="z-10 mb-5">
         <InputParameter />
       </div>
-      {/*progress training */}
       {isTraining && (
-        <div className="mt-4 p-3 bg-blue-50 text-blue-700 rounded-md text-sm">
-          ⚡ Training in progress... Please don't close this page.
+        <div className="mt-5">
+          <h1 className="text-xl font-semibold mb-3">Training Progress</h1>
+          <ProgressBar />
+        </div>
+      )}
+      {/* Jika tidak ada apa-apa */}
+      {!isTraining && !trainingResults && (
+        <div className="mt-5 p-8 bg-gray-50 rounded-lg text-center mb-5">
+          <p className="text-gray-500">
+            Mulai training untuk mendapatkan model.
+          </p>
         </div>
       )}
     </div>
