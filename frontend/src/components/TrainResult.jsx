@@ -1,7 +1,7 @@
 import React from "react";
 
 function TrainResult() {
-  return <div>TrainResult</div>;
+  return <div>TrainingResult</div>;
 }
 
 export default TrainResult;

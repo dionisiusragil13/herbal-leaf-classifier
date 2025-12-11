@@ -32,7 +32,7 @@ function HerbalFeatures() {
           <div
             key={index}
             data-aos="zoom-in"
-            data-aos-delay={index * 100} // Delay bertahap untuk efek berurutan
+            data-aos-delay={index * 100}
             data-aos-mirror="true"
             data-aos-once="false"
             className="card p-5 border border-green-600 rounded-xl bg-white"

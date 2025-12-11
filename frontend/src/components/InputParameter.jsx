@@ -35,7 +35,7 @@ function InputParameter() {
       optimizer: optimizer,
       learning_rate: Number(learningRate),
       epochs: Number(epoch),
-      model_name:name
+      model_name: name,
     };
     startTraining(parameter);
   };
@@ -57,7 +57,6 @@ function InputParameter() {
                 <h2 className="text-xl font-semibold text-gray-800">
                   Split data
                 </h2>
-                <CircleQuestionMark color="#000000" className="w-3 h-3" />
               </div>
               <div className="bg-blue-800 text-white px-4 py-1 rounded-full text-sm font-medium">
                 {splitData}
@@ -88,7 +87,28 @@ function InputParameter() {
           <div className="mb-5">
             <div className="flex flex-row items-center gap-2 mb-2">
               <h2 className="text-xl font-semibold text-gray-800">Optimizer</h2>
-              <CircleQuestionMark color="#000000" className="w-3 h-3" />
+              <div className="group relative flex items-center justify-center">
+                <CircleQuestionMark
+                  color="#000000"
+                  className="w-3 h-3 cursor-help"
+                />
+
+                {/* 2. Teks Tooltip */}
+                <div
+                  className="
+                      absolute bottom-full left-1/2 mb-2 -translate-x-1/2                      
+                      whitespace-nowrap                     
+                      rounded bg-gray-800 px-2 py-1       
+                      text-xs text-white                    
+                      invisible opacity-0                   
+                      transition-all duration-200 ease-in-out 
+                      group-hover:visible group-hover:opacity-100 
+                      z-50"
+                >
+                  algoritma yang memperbarui bobot (weights) dan bias model secara iteratif
+                  <div className="absolute top-full left-1/2 -mt-1 h-2 w-2 -translate-x-1/2 rotate-45 bg-gray-800"></div>
+                </div>
+              </div>
             </div>
 
             <select
@@ -110,8 +130,31 @@ function InputParameter() {
           {/* Learning rate */}
           <div className="mb-5">
             <div className="flex flex-row items-center gap-2 mb-2">
-              <h2 className="text-xl font-semibold text-gray-800">Optimizer</h2>
-              <CircleQuestionMark color="#000000" className="w-3 h-3" />
+              <h2 className="text-xl font-semibold text-gray-800">
+                Learning Rate
+              </h2>
+              <div className="group relative flex items-center justify-center">
+                <CircleQuestionMark
+                  color="#000000"
+                  className="w-3 h-3 cursor-help"
+                />
+
+                {/* 2. Teks Tooltip */}
+                <div
+                  className="
+                      absolute bottom-full left-1/2 mb-2 -translate-x-1/2                      
+                      whitespace-nowrap                     
+                      rounded bg-gray-800 px-2 py-1       
+                      text-xs text-white                    
+                      invisible opacity-0                   
+                      transition-all duration-200 ease-in-out 
+                      group-hover:visible group-hover:opacity-100 
+                      z-50"
+                >
+                  menentukan seberapa besar perubahan yang akan dilakukan pada bobot dan bias model
+                  <div className="absolute top-full left-1/2 -mt-1 h-2 w-2 -translate-x-1/2 rotate-45 bg-gray-800"></div>
+                </div>
+              </div>
             </div>
 
             <select
@@ -123,7 +166,7 @@ function InputParameter() {
               onChange={handleLearningRateChange}
             >
               <option value="" disabled>
-                Pilih optimizer
+                Pilih Learning rate
               </option>
               <option value={0.1}>0.1 (low)</option>
               <option value={0.01}>0.01 (medium)</option>
@@ -135,7 +178,28 @@ function InputParameter() {
           <div className="mb-5">
             <div className="flex flex-row items-center gap-2 mb-2">
               <h2 className="text-xl font-semibold text-gray-800">Epoch</h2>
-              <CircleQuestionMark color="#000000" className="w-3 h-3" />
+              <div className="group relative flex items-center justify-center">
+                <CircleQuestionMark
+                  color="#000000"
+                  className="w-3 h-3 cursor-help"
+                />
+
+                {/* 2. Teks Tooltip */}
+                <div
+                  className="
+                      absolute bottom-full left-1/2 mb-2 -translate-x-1/2                      
+                      whitespace-nowrap                     
+                      rounded bg-gray-800 px-2 py-1       
+                      text-xs text-white                    
+                      invisible opacity-0                   
+                      transition-all duration-200 ease-in-out 
+                      group-hover:visible group-hover:opacity-100 
+                      z-50"
+                >
+                  satu siklus pelatihan penuh
+                  <div className="absolute top-full left-1/2 -mt-1 h-2 w-2 -translate-x-1/2 rotate-45 bg-gray-800"></div>
+                </div>
+              </div>
             </div>
             <input
               className=" w-full bg-[#d9d9d9] placeholder-gray-700/50 h-10 rounded-lg text-black pl-5"
@@ -148,7 +212,6 @@ function InputParameter() {
           <div className="mb-4">
             <div className="flex flex-row items-center gap-2 mb-2">
               <h2 className="text-xl font-semibold text-gray-800">Nama File</h2>
-              <CircleQuestionMark color="#000000" className="w-3 h-3" />
             </div>
             <input
               className=" w-full bg-[#d9d9d9] placeholder-gray-700/50 h-10 rounded-lg text-black pl-5"
