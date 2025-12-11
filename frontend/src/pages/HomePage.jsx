@@ -1,6 +1,7 @@
 import React from "react";
 import HerbalFeatures from "../components/HomeCard";
 import TextWithHighlight from "../components/HighLightedText";
+import ListData from "../components/ListData";
 
 function HomePage() {
   return (
@@ -30,9 +31,10 @@ function HomePage() {
         <img src="home.png" className="w-130 h-130" />
       </div>
       <HerbalFeatures />
-      <div>
-        <h1>text</h1>
+      <div className="flex justify-center my-5">
+        <h1 className="font-bold text-[25px] text-white">Lingkup Data</h1>
       </div>
+      <ListData/>
     </div>
   );
 }
