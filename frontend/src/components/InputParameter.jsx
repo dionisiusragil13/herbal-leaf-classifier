@@ -110,12 +110,10 @@ function InputParameter() {
                 </div>
               </div>
             </div>
-
             <select
               className="w-full bg-[#d9d9d9] h-10 rounded-lg text-black pl-3 
                placeholder-black placeholder:font-light
                focus:outline-none focus:ring-2 focus:ring-indigo-500"
-              defaultValue="rmsprop"
               value={optimizer}
               onChange={handleOptimizerChange}
             >
@@ -161,17 +159,16 @@ function InputParameter() {
               className="w-full bg-[#d9d9d9] h-10 rounded-lg text-black pl-3 
                placeholder-black placeholder:font-light
                focus:outline-none focus:ring-2 focus:ring-indigo-500"
-              defaultValue=""
               value={learningRate}
               onChange={handleLearningRateChange}
             >
               <option value="" disabled>
                 Pilih Learning rate
               </option>
-              <option value={0.1}>0.1 (low)</option>
-              <option value={0.01}>0.01 (medium)</option>
-              <option value={0.001}>0.001 (high)</option>
-              <option value={0.0001}>0.0001 (very high)</option>
+              <option value={"0.1"}>0.1 (low)</option>
+              <option value={"0.01"}>0.01 (medium)</option>
+              <option value={"0.001"}>0.001 (high)</option>
+              <option value={"0.0001"}>0.0001 (very high)</option>
             </select>
           </div>
           {/* epoch */}
