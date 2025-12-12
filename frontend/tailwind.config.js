@@ -9,8 +9,8 @@ module.exports = {
     extend: {
       // *** Tambahkan konfigurasi font kustom di sini ***
       fontFamily: {
-        playwrite: ["Playwrite NO", "cursive"],
-        lobster: ["Lobster", "sans-serif"]
+        lobster: ['"Lobster"', "sans-serif"],
+        Sekuya: ['"Sekuya"', "system-ui"],
       },
     },
   },
