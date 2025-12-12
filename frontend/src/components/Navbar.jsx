@@ -7,12 +7,12 @@ function Navbar() {
   return (
     <div className="flex justify-between pr-25 pl-41 items-center mx-4 ">
       <div>
-        <span className="font-">LeafSense</span>
+        <span className="font-[Lobster]">LeafSense</span>
       </div>
       <div className="flex space-x-5">
         <Link
           to={"/"}
-          className={`text-[20px] font-medium px-8 mx-4 font-serif transition ${
+          className={`text-[15px] font-medium px-8 mx-4 font-[sekuya] transition ${
             isActive("/") ? "text-yellow-400" : "text-white"
           }`}
         >
@@ -20,7 +20,7 @@ function Navbar() {
         </Link>
         <Link
           to={"/train"}
-          className={`text-[20px] font-medium px-8 mx-4 font-serif transition ${
+          className={`text-[15px] font-medium px-8 mx-4 font-[sekuya] transition ${
             isActive("/train") ? "text-yellow-400" : "text-white"
           }`}
         >
@@ -28,7 +28,7 @@ function Navbar() {
         </Link>
         <Link
           to={"/test"}
-          className={`text-[20px] font-medium px-8 mx-4 font-serif transition ${
+          className={`text-[15px] font-medium px-8 mx-4 font-[sekuya] transition ${
             isActive("/test") ? "text-yellow-400" : "text-white"
           }`}
         >

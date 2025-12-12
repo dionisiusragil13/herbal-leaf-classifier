@@ -7,13 +7,13 @@ const useTrainStore = create((set, get) => ({
   currentBatch: 0,
   currentEpoch: 0,
   totalEpochs: 0,
-  progress: 80,
+  progress: 0,
   isTraining: false,
   metrics: {
-    accuracy: 0.8,
-    loss: 0.005,
-    val_accuracy: 0.7,
-    val_loss: 0.001,
+    accuracy: 0,
+    loss: 0,
+    val_accuracy: 0,
+    val_loss: 0,
   },
 
   startTraining: async (parameter) => {
