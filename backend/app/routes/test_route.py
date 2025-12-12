@@ -71,7 +71,7 @@ def models():
             'detail':str(e)
         })
     
-@test_bp.route('/load_model',methods=['GET'])
+@test_bp.route('/load_model',methods=['POST'])
 def load_model():
     try:
         data = request.get_json()
