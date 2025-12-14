@@ -17,7 +17,7 @@ const useTrainStore = create((set, get) => ({
   },
 
   startTraining: async (parameter) => {
-    set({ isLoading: true });
+    set({ isTraining: true });
     try {
       const res = await axiosInstance.post("/train/start", parameter);
       console.log("Response:", res.data);
@@ -26,9 +26,7 @@ const useTrainStore = create((set, get) => ({
       toast.success("training model selesai");
     } catch (error) {
       console.log("Error:", error);
-    } finally {
-      set({ isLoading: false });
-    }
+    } 
   },
   startProgressPolling: () => {
     const interval = setInterval(() => {
@@ -54,22 +52,14 @@ const useTrainStore = create((set, get) => ({
           val_accuracy: data.metrics?.val_accuracy,
           val_loss: data.metrics?.val_loss || 0,
         },
-        bestAccuracy: newBestAccuracy,
-        bestAccuracyEpoch: newBestAccuracyEpoch,
       });
       if (!data.is_training && get().pollingInterval) {
         clearInterval(get().pollingInterval);
         set({ pollingInterval: null });
-        get().fetchResults();
       }
     } catch (error) {
       console.error("Error fetching progress:", error);
     }
-  },
-  detailTraining: async () => {
-    try {
-      const res = await axiosInstance.get("/result");
-    } catch (error) {}
   },
 }));
 
