@@ -68,8 +68,7 @@ const useTestStore = create((set, get) => ({
 
       const res = await axiosInstance.post("/test/predict", formData, {
         headers: {
-          "Content-Type": "multipart/form-data",
-        },
+          "Content-Type": "multipart/form-data",},
       });
       set({
         predictionResult: res.data,
